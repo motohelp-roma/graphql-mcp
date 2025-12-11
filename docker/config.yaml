@@ -1,0 +1,19 @@
+# Apollo MCP Server Configuration Template
+# Questo file viene sovrascritto dall'entrypoint con i valori delle env vars
+
+endpoint: https://api.dev.officinemoto.com/graphql
+
+transport:
+  type: streamable_http
+  port: 8000
+  host: 0.0.0.0
+
+schema:
+  source: local
+  path: /data/schema.graphql
+
+introspection:
+  introspect:
+    enabled: true
+  execute:
+    enabled: true

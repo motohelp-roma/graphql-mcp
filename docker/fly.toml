@@ -1,0 +1,36 @@
+# fly.toml - Configurazione per deploy su Fly.io
+# Docs: https://fly.io/docs/reference/configuration/
+
+app = "motohelp-mcp"
+primary_region = "fra"  # Frankfurt - vicino all'Italia
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  GRAPHQL_ENDPOINT = "https://api.dev.officinemoto.com/graphql"
+  MCP_PORT = "8000"
+  MCP_HOST = "0.0.0.0"
+  INTROSPECTION_ENABLED = "true"
+  EXECUTE_ENABLED = "true"
+  REFRESH_SCHEMA = "true"
+
+[http_service]
+  internal_port = 8000
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ["app"]
+
+[[http_service.checks]]
+  grace_period = "10s"
+  interval = "30s"
+  method = "GET"
+  path = "/health"
+  timeout = "5s"
+
+[[vm]]
+  cpu_kind = "shared"
+  cpus = 1
+  memory_mb = 256

@@ -1,0 +1,9 @@
+{
+  "name": "motohelp-mcp-extension",
+  "version": "1.0.0",
+  "description": "Claude Desktop Extension per le API GraphQL di Motohelp",
+  "main": "server/index.js",
+  "author": "Motohelp",
+  "license": "MIT",
+  "engines": {"node": ">=18.0.0"}
+}

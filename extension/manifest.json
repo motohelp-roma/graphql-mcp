@@ -1,0 +1,31 @@
+{
+  "mcpb_version": "0.1",
+  "name": "motohelp-graphql",
+  "display_name": "Motohelp GraphQL API",
+  "version": "1.0.0",
+  "description": "Connetti Claude alle API GraphQL di Motohelp.",
+  "author": {
+    "name": "Motohelp",
+    "url": "https://motohelp.it"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/motohelp-roma/graphql-mcp"
+  },
+  "homepage": "https://motohelp.it",
+  "icon": "icon.png",
+  "license": "MIT",
+  "server": {
+    "type": "node",
+    "entry_point": "server/index.js"
+  },
+  "tools": [
+    {"name": "introspect", "description": "Esplora lo schema GraphQL"},
+    {"name": "execute", "description": "Esegui query o mutation GraphQL"}
+  ],
+  "compatibility": {
+    "claude_desktop": ">=1.0.0",
+    "platforms": ["darwin", "win32", "linux"],
+    "runtimes": {"node": ">=18.0.0"}
+  }
+}
